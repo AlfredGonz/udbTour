@@ -29,10 +29,15 @@ public class allsites  extends AppCompatActivity
     {
 
         private RecyclerView myReclyclerView;
-        private RecyclerView.Adapter myAdapter;
+        private PurposesAdapter myAdapter;
         private RecyclerView.LayoutManager myLayoutManager;
         PurposesController purposesController;
         List<Purposes> lista;
+
+
+        private RecyclerView recyclerView;
+        private SearchView searchView;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -117,11 +122,17 @@ public class allsites  extends AppCompatActivity
         }
 
 
+
+
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
-         /*   getMenuInflater().inflate(R.menu.menu_main, menu);
+            getMenuInflater().inflate(R.menu.menu_main, menu);
 
-            // Associate searchable configuration with the SearchView
+
+
+
+
+           // Associate searchable configuration with the SearchView
             SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
             searchView = (SearchView) menu.findItem(R.id.action_search)
                     .getActionView();
@@ -134,18 +145,30 @@ public class allsites  extends AppCompatActivity
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     // filter recycler view when query submitted
-                    mAdapter.getFilter().filter(query);
+                   // mAdapter.getFilter().filter(query);
+                    myAdapter.getFilter().filter(query);
+
+
+
+
+
+
                     return false;
                 }
 
                 @Override
                 public boolean onQueryTextChange(String query) {
                     // filter recycler view when text is changed
-                    mAdapter.getFilter().filter(query);
+                   /// mAdapter.getFilter().filter(query);
+
+                    myAdapter.getFilter().filter(query);
+
+
+
                     return false;
                 }
             });
-            return true;*/
+
             return true;
         }
 

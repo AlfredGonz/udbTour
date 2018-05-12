@@ -5,22 +5,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
 import com.example.alfredo.udbtour.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Ariel on 02/03/2018.
  */
 
-public class PurposesAdapter extends RecyclerView.Adapter<PurposesAdapter.ViewHolder>{
+public class PurposesAdapter extends RecyclerView.Adapter<PurposesAdapter.ViewHolder>  implements Filterable {
 
 
     private List<Purposes> purposesList;
+    private List<Purposes> purposesListFilter;
+
     private int layout;
     private onItemClickListener listener;
 
@@ -28,6 +33,7 @@ public class PurposesAdapter extends RecyclerView.Adapter<PurposesAdapter.ViewHo
         this.purposesList = Purposes;
         this.layout = layout;
         this.listener = listener;
+        purposesListFilter = Purposes;
     }
 
     @Override
@@ -43,13 +49,53 @@ public class PurposesAdapter extends RecyclerView.Adapter<PurposesAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         //llamamos al metodo bind del viewholder pasandole el objdeto y un listener
-        holder.bind(purposesList.get(position), listener);
+        holder.bind(purposesListFilter.get(position), listener);
 
     }
 
     @Override
     public int getItemCount() {
-        return purposesList.size();
+        return purposesListFilter.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    purposesListFilter = purposesList;
+                } else {
+                    List<Purposes> filteredList = new ArrayList<>();
+                    for (Purposes row : purposesList) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        if (row.getName().toLowerCase().contains(charString.toLowerCase()) || row.getDescription().contains(charSequence)) {
+                            filteredList.add(row);
+                        }
+                    }
+
+                    purposesListFilter = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = purposesListFilter;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                purposesListFilter = (ArrayList<Purposes>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+    public interface PurposessAdapterListener {
+        void onPurposesSelected(Purposes Purposes);
+
     }
 
     public static class ViewHolder extends  RecyclerView.ViewHolder{
