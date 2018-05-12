@@ -24,14 +24,7 @@ public class Purposes {
 
     public Purposes() {
     }
-    public Purposes(String name, String description, String lat,
-                    String lon) {
-        this.Id = Id;
-        this.name = name;
-        this.description = description;
-        this.lat = lat;
-        this.lon = lon;
-    }
+
 
     @Generated(hash = 1522195566)
     public Purposes(Long Id, String name, String description, String lat,
