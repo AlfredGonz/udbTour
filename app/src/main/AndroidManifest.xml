@@ -64,7 +64,11 @@
             android:label="@string/title_activity_sitios_arqueoligicos_map" />
         <activity
             android:name=".MonumentosMap"
-            android:label="@string/title_activity_monumentos_map"></activity>
+            android:label="@string/title_activity_monumentos_map" />
+        <activity android:name=".Mapas" />
+        <activity
+            android:name=".MapasMap"
+            android:label="@string/title_activity_mapas_map"></activity>
     </application>
 
 </manifest>
