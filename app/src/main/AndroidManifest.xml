@@ -34,6 +34,13 @@
         <activity android:name=".Sugerencias"
                 android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
+        </activity>
+
+
+
+        <activity android:name=".allsites"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
