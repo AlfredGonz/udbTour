@@ -63,5 +63,16 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Sugerencias.class);
         startActivity(intent);
     }
+    public void mapasMap(View view) {
+
+        Intent intent = new Intent(this, MapasMap.class);
+        startActivity(intent);
+    }
+
+    public void allsites(View view) {
+
+        Intent intent = new Intent(this, allsites.class);
+        startActivity(intent);
+    }
 }
 
