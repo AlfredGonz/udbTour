@@ -14,5 +14,7 @@
     <string name="title_activity_sitios_arqueoligicos_map">Map</string>
     <string name="title_activity_monumentos_map">Map</string>
     <string name="title_activity_mapas_map">Map</string>
+    <string name="action_search">Search</string>
+    <string name="search_hint">Type name…</string>
 
 </resources>
