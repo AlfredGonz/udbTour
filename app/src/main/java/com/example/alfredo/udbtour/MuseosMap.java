@@ -1,48 +1,33 @@
 package com.example.alfredo.udbtour;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MuseosMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
-
-        if (status == ConnectionResult.SUCCESS) {
-
-            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
-
-        } else {
-            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, (Activity) getApplicationContext(), 10);
-            dialog.show();
-        }
+        setContentView(R.layout.activity_museos_map);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }
 
 
@@ -59,38 +44,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
+
+
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
 
         UiSettings uiSettings = mMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
 
-        // Palacio Nacional de Los Deportes INDES
-        LatLng indes = new LatLng(13.703688, -89.195408);
-        mMap.addMarker(new MarkerOptions().position(indes).title("Palacio Nacional de Los Deportes INDES").icon(BitmapDescriptorFactory.fromResource(R.drawable.depo)));
+        // Playa El Tunco
+        LatLng eltunco = new LatLng(13.493027, -89.385048);
+        mMap.addMarker(new MarkerOptions().position(eltunco).title("Playa El Tunco").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
 
-        //Estadio Nacional Jorge "El Magico" Gonzalez
-        LatLng estadio1 = new LatLng(13.698471, -89.215366);
-        mMap.addMarker(new MarkerOptions().position(estadio1).title("Estadio Nacional Jorge \"El Magico\" Gonzalez").icon(BitmapDescriptorFactory.fromResource(R.drawable.depo)));
+//Playa El Majagual
+        LatLng elmajagual = new LatLng(13.489923, -89.365954);
+        mMap.addMarker(new MarkerOptions().position(elmajagual).title("Playa El Majagual").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
 
-        //Circulo deportivo Internacional
-        LatLng circulo = new LatLng(13.695540, -89.227377);
-        mMap.addMarker(new MarkerOptions().position(circulo).title("Circulo deportivo Internacional").icon(BitmapDescriptorFactory.fromResource(R.drawable.depo)));
+//Playa El Cocal
+        LatLng elcocal = new LatLng(13.486493, -89.348049);
+        mMap.addMarker(new MarkerOptions().position(elcocal).title("Playa El Cocal").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
 
-        //Estadio Cuscatlan
-        LatLng estadio2 = new LatLng(13.681492, -89.223142);
-        mMap.addMarker(new MarkerOptions().position(estadio2).title("Estadio Cuscatlán").icon(BitmapDescriptorFactory.fromResource(R.drawable.depo)));
+//Puerto de La Libertad
+        LatLng puertoll = new LatLng(13.486221, -89.319273);
+        mMap.addMarker(new MarkerOptions().position(puertoll).title("Puerto de La Libertad").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
 
-        //Estadio de Futbol Playa Costa del Sol
-        LatLng playa = new LatLng(13.335652, -88.977421);
-        mMap.addMarker(new MarkerOptions().position(playa).title("Estadio Futbol Playa Costa del Sol").icon(BitmapDescriptorFactory.fromResource(R.drawable.depo)));
+//PLaya San Diego
+        LatLng sandiego = new LatLng(13.477917, -89.280196);
+        mMap.addMarker(new MarkerOptions().position(sandiego).title("Playa San Diego").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
 
-        //Estadio Futbol Playa Apulo
-        LatLng apulo = new LatLng(13.702274, -89.077601);
-        mMap.addMarker(new MarkerOptions().position(apulo).title("Estadio Futbol Playa Apulo").icon(BitmapDescriptorFactory.fromResource(R.drawable.depo)));
+//Playa Los Cobanos
+        LatLng cobanos = new LatLng(13.525478, -89.804414);
+        mMap.addMarker(new MarkerOptions().position(cobanos).title("Playa Los Cobanos").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+
+//PLaya La Costa del Sol
+        LatLng costa = new LatLng(13.330511, -88.975641);
+        mMap.addMarker(new MarkerOptions().position(costa).title("Playa Costa del Sol").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+
+//PLaya La Zunganera
+        LatLng zunganera = new LatLng(13.404572, -89.129187);
+        mMap.addMarker(new MarkerOptions().position(zunganera).title("Playa La Zunganera").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+
+
 
         float zoomlevel = 16;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(indes, zoomlevel));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(puertoll, zoomlevel));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -104,7 +102,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         mMap.setMyLocationEnabled(true);
 
+
     }
+
 
     public void tipoNormal(View view) {
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
