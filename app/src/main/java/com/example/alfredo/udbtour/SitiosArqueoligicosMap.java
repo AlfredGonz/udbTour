@@ -16,14 +16,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MuseosMap extends FragmentActivity implements OnMapReadyCallback {
+public class SitiosArqueoligicosMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_museos_map);
+        setContentView(R.layout.activity_sitios_arqueoligicos_map);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -45,42 +45,36 @@ public class MuseosMap extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
 
-
-
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
 
         UiSettings uiSettings = mMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
 
-        // Museo de Arte de El Salvador
-        LatLng marte = new LatLng(13.692624, -89.241932);
-        mMap.addMarker(new MarkerOptions().position(marte).title("Museo de Arte de El Salvador").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+        //
+        // Cihuatan
+        LatLng cihuatan = new LatLng(13.980932, -89.164938);
+        mMap.addMarker(new MarkerOptions().position(cihuatan).title("Cihuatan").icon(BitmapDescriptorFactory.fromResource(R.drawable.pyramid)));
 
-        //Museo Nacional Dr. David J. Guzmán
-        LatLng museodavid = new LatLng(13.687182, -89.238772);
-        mMap.addMarker(new MarkerOptions().position(museodavid).title("Museo Nacional Dr. David J. Guzmán").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+//Sitio Arqueologico San Andres
+        LatLng sanandres = new LatLng(13.800649, -89.389344);
+        mMap.addMarker(new MarkerOptions().position(sanandres).title("Sitio Arqueológico San Andrés").icon(BitmapDescriptorFactory.fromResource(R.drawable.pyramid)));
 
-        //Museo del Ferrocarril y Parque Temático
-        LatLng ferrocarril = new LatLng(13.700938, -89.177667);
-        mMap.addMarker(new MarkerOptions().position(ferrocarril).title("Museo del Ferrocarril y Parque Temático").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+//Sitio Arqueologico Joya de Cerén
+        LatLng ceren = new LatLng(13.827935, -89.356243);
+        mMap.addMarker(new MarkerOptions().position(ceren).title("Sitio Arqueologico Joya de Cerén").icon(BitmapDescriptorFactory.fromResource(R.drawable.pyramid)));
 
-        //Museo de Aviación
-        LatLng aviacion = new LatLng(13.695890, -89.115100);
-        mMap.addMarker(new MarkerOptions().position(aviacion).title("Museo de Aviación").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+//Sitio Arqueologico Casa Blanca
+        LatLng casablanca = new LatLng(13.987967, -89.671245);
+        mMap.addMarker(new MarkerOptions().position(casablanca).title("Sitio Arqueológico Casa Blanca").icon(BitmapDescriptorFactory.fromResource(R.drawable.pyramid)));
 
-        //Museo de la Palabra y la Imagen
-        LatLng museopalabra = new LatLng(13.709297, -89.205009);
-        mMap.addMarker(new MarkerOptions().position(museopalabra).title("Museo de la Palabra y la Imagen").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
-
-        //Tin Marín, Museo de los Niños
-        LatLng tinmarin = new LatLng(13.525478, -89.804414);
-        mMap.addMarker(new MarkerOptions().position(tinmarin).title("Tin Marín, Museo de los Niños").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+        //Sitio Arqueológico El Tazumal
+        LatLng tazumal = new LatLng(13.979621, -89.674170);
+        mMap.addMarker(new MarkerOptions().position(tazumal).title("Sitio Arqueológico El Tazumal").icon(BitmapDescriptorFactory.fromResource(R.drawable.pyramid)));
 
 
-
-        float zoomlevel = 16;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marte, zoomlevel));
+        float zoomlevel = 9;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sanandres, zoomlevel));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling

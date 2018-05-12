@@ -63,7 +63,13 @@
             android:label="@string/title_activity_bosques_map" />
         <activity
             android:name=".MuseosMap"
-            android:label="@string/title_activity_museos_map"></activity>
+            android:label="@string/title_activity_museos_map" />
+        <activity
+            android:name=".SitiosArqueoligicosMap"
+            android:label="@string/title_activity_sitios_arqueoligicos_map" />
+        <activity
+            android:name=".MonumentosMap"
+            android:label="@string/title_activity_monumentos_map"></activity>
     </application>
 
 </manifest>

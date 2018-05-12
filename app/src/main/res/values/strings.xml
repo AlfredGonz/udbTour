@@ -11,5 +11,7 @@
     <string name="title_activity_playas_maps">Map</string>
     <string name="title_activity_bosques_map">Map</string>
     <string name="title_activity_museos_map">Map</string>
+    <string name="title_activity_sitios_arqueoligicos_map">Map</string>
+    <string name="title_activity_monumentos_map">Map</string>
 
 </resources>

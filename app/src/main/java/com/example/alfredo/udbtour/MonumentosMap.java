@@ -16,14 +16,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MuseosMap extends FragmentActivity implements OnMapReadyCallback {
+public class MonumentosMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_museos_map);
+        setContentView(R.layout.activity_monumentos_map);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -44,43 +44,47 @@ public class MuseosMap extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
-
-
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
 
         UiSettings uiSettings = mMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
 
-        // Museo de Arte de El Salvador
-        LatLng marte = new LatLng(13.692624, -89.241932);
-        mMap.addMarker(new MarkerOptions().position(marte).title("Museo de Arte de El Salvador").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+        // Monumento al Divino Salvador del Mundo
+        LatLng divino = new LatLng(13.701336, -89.224435);
+        mMap.addMarker(new MarkerOptions().position(divino).title("Monumento al Divino Salvador del Mundo").icon(BitmapDescriptorFactory.fromResource(R.drawable.statue)));
 
-        //Museo Nacional Dr. David J. Guzmán
-        LatLng museodavid = new LatLng(13.687182, -89.238772);
-        mMap.addMarker(new MarkerOptions().position(museodavid).title("Museo Nacional Dr. David J. Guzmán").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+        // Monumento a la Revolucion
+        LatLng revolucion = new LatLng(13.692527, -89.242015);
+        mMap.addMarker(new MarkerOptions().position(revolucion).title("Monumento a la Revolución").icon(BitmapDescriptorFactory.fromResource(R.drawable.statue)));
 
-        //Museo del Ferrocarril y Parque Temático
-        LatLng ferrocarril = new LatLng(13.700938, -89.177667);
-        mMap.addMarker(new MarkerOptions().position(ferrocarril).title("Museo del Ferrocarril y Parque Temático").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+        //Monumento a la Constitución
+        LatLng constitucion = new LatLng(13.718004, -89.222461);
+        mMap.addMarker(new MarkerOptions().position(constitucion).title("Monumento a la Constitución").icon(BitmapDescriptorFactory.fromResource(R.drawable.statue)));
 
-        //Museo de Aviación
-        LatLng aviacion = new LatLng(13.695890, -89.115100);
-        mMap.addMarker(new MarkerOptions().position(aviacion).title("Museo de Aviación").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+        //Monumento Hermano Lejano
+        LatLng lejano = new LatLng(13.684691, -89.218067);
+        mMap.addMarker(new MarkerOptions().position(lejano).title("Monumento Hermano Lejano").icon(BitmapDescriptorFactory.fromResource(R.drawable.statue)));
 
-        //Museo de la Palabra y la Imagen
-        LatLng museopalabra = new LatLng(13.709297, -89.205009);
-        mMap.addMarker(new MarkerOptions().position(museopalabra).title("Museo de la Palabra y la Imagen").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+        //Monumento Francisco Morazán
+        LatLng morazan = new LatLng(13.699146, -89.190395);
+        mMap.addMarker(new MarkerOptions().position(morazan).title("Momumento Francisco Morazán").icon(BitmapDescriptorFactory.fromResource(R.drawable.statue)));
 
-        //Tin Marín, Museo de los Niños
-        LatLng tinmarin = new LatLng(13.525478, -89.804414);
-        mMap.addMarker(new MarkerOptions().position(tinmarin).title("Tin Marín, Museo de los Niños").icon(BitmapDescriptorFactory.fromResource(R.drawable.museum)));
+        //Plaza Gerardo Barrios
+        LatLng barrios = new LatLng(13.697641, -89.191199);
+        mMap.addMarker(new MarkerOptions().position(barrios).title("Monumento a Gerardo Barrios").icon(BitmapDescriptorFactory.fromResource(R.drawable.statue)));
 
+        //Monumento a los Proceres
+        LatLng proceres = new LatLng(13.682608, -89.193441);
+        mMap.addMarker(new MarkerOptions().position(barrios).title("Monumento a Los Proceres").icon(BitmapDescriptorFactory.fromResource(R.drawable.statue)));
+
+        //Monumento a la Paz
+        LatLng paz = new LatLng(13.668522, -89.190610);
+        mMap.addMarker(new MarkerOptions().position(paz).title("Monumento a La Paz").icon(BitmapDescriptorFactory.fromResource(R.drawable.statue)));
 
 
         float zoomlevel = 16;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marte, zoomlevel));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(divino, zoomlevel));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
