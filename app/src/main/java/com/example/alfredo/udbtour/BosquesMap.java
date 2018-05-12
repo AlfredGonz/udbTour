@@ -81,8 +81,8 @@ public class BosquesMap extends FragmentActivity implements OnMapReadyCallback {
         LatLng tecomatal = new LatLng(13.669336, -88.491244);
         mMap.addMarker(new MarkerOptions().position(tecomatal).title("Bosque El Tecomatal").icon(BitmapDescriptorFactory.fromResource(R.drawable.forest)));
 
-        float zoomlevel = 16;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(montecristo, zoomlevel));
+        float zoomlevel = 9;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lajoya, zoomlevel));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
